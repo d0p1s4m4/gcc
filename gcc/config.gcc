@@ -993,6 +993,11 @@ case ${target} in
 *-*-rdos*)
   use_gcc_stdint=wrap
   ;;
+*-*-seac*)
+  gas=yes
+  gnu_ld=yes
+  use_gcc_stdint=provide
+  ;;
 *-*-solaris2*)
   # i?86-*-solaris2* needs to insert headers between cpu default and
   # Solaris 2 specific ones.
@@ -1877,6 +1882,9 @@ x86_64-*-rdos*)
     tm_file="${tm_file} i386/unix.h i386/att.h elfos.h newlib-stdint.h i386/i386elf.h i386/x86-64.h i386/rdos.h i386/rdos64.h"
     tmake_file="i386/t-i386elf t-svr4"
     ;;
+i[34567]86-*-seac*)
+	tm_file="${tm_file} i386/unix.h i386/att.h elfos.h glibc-stdint.h i386/i386elf.h seac.h"
+	;;
 i[34567]86-*-dragonfly*)
 	tm_file="${tm_file} i386/unix.h i386/att.h elfos.h dragonfly.h dragonfly-stdint.h i386/dragonfly.h"
 	tmake_file="${tmake_file} i386/t-crtstuff"
